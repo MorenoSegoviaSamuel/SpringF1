@@ -9,4 +9,8 @@ public record DriverDTO (
         String forename,
         String surname,
         String constructor
-){ }
+){
+    public DriverDTO(Long id, String code, String forename, String surname) {
+        this(id, code, forename, surname, null);
+    }
+}

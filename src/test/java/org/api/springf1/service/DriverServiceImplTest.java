@@ -31,6 +31,7 @@ public class DriverServiceImplTest {
     public void setup(){
         driver = Driver.builder().id(1L).code("AAA").forename("Aytron").surname("Senna").build();
         driverDTO = DriverDTO.builder().id(1L).code("AAA").forename("Aytron").surname("Senna").build();
+
     }
 
     @Test
@@ -47,6 +48,7 @@ public class DriverServiceImplTest {
 
     }
 
+    @Test
     public void shouldReturnDriverDTOWhenFindDriverByCode(){
         when(driverRepository.findByCodeIgnoreCase("AAA")).thenReturn(Optional.of(driver));
 
@@ -54,5 +56,6 @@ public class DriverServiceImplTest {
 
         assertNotNull(getDriverByCode);
         assertEquals("AAA", getDriverByCode.code());
+
     }
 }
